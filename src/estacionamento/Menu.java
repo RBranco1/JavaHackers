@@ -29,6 +29,10 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jdpPainel = new javax.swing.JDesktopPane();
+        btnCalc = new javax.swing.JButton();
+        btnReajuste = new javax.swing.JButton();
+        btnBoletim = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmMenu1 = new javax.swing.JMenu();
         jmLogin = new javax.swing.JMenuItem();
@@ -39,16 +43,65 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
+        btnCalc.setText("Calculadora");
+        btnCalc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcActionPerformed(evt);
+            }
+        });
+
+        btnReajuste.setText("Reajuste");
+
+        btnBoletim.setText("Boletim");
+        btnBoletim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBoletimActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jdpPainelLayout = new javax.swing.GroupLayout(jdpPainel);
         jdpPainel.setLayout(jdpPainelLayout);
         jdpPainelLayout.setHorizontalGroup(
             jdpPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGroup(jdpPainelLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(jdpPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCalc)
+                    .addComponent(btnBoletim))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addGroup(jdpPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnReajuste)
+                    .addComponent(jButton1))
+                .addGap(85, 85, 85))
         );
         jdpPainelLayout.setVerticalGroup(
             jdpPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(jdpPainelLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jdpPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCalc)
+                    .addComponent(btnReajuste))
+                .addGroup(jdpPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jdpPainelLayout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(btnBoletim)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdpPainelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(90, 90, 90))))
         );
+        jdpPainel.setLayer(btnCalc, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdpPainel.setLayer(btnReajuste, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdpPainel.setLayer(btnBoletim, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdpPainel.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -110,6 +163,21 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jmSairActionPerformed
 
+    private void btnBoletimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBoletimActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBoletimActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
+        // TODO add your handling code here:
+        JFCalcSoma abrir = new JFCalcSoma();
+        btnCalc.add(abrir);
+        abrir.setVisible(true);    
+    }//GEN-LAST:event_btnCalcActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -146,6 +214,10 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBoletim;
+    private javax.swing.JButton btnCalc;
+    private javax.swing.JButton btnReajuste;
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
