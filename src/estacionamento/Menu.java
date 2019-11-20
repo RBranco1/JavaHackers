@@ -9,6 +9,7 @@ package estacionamento;
  *
  * @author LABORATORIO_INFO
  */
+
 public class Menu extends javax.swing.JFrame {
 
     /**
@@ -16,6 +17,10 @@ public class Menu extends javax.swing.JFrame {
      */
     public Menu() {
         initComponents();
+    }
+        public Menu(String nome) {
+        initComponents();
+        lblReceberNome.setText(nome);
     }
 
     /**
@@ -32,7 +37,9 @@ public class Menu extends javax.swing.JFrame {
         btnCalc = new javax.swing.JButton();
         btnReajuste = new javax.swing.JButton();
         btnBoletim = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnSair = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        lblReceberNome = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jmMenu1 = new javax.swing.JMenu();
         jmLogin = new javax.swing.JMenuItem();
@@ -51,6 +58,11 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnReajuste.setText("Reajuste");
+        btnReajuste.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReajusteActionPerformed(evt);
+            }
+        });
 
         btnBoletim.setText("Boletim");
         btnBoletim.addActionListener(new java.awt.event.ActionListener() {
@@ -59,12 +71,25 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Sair");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSair.setText("Sair");
+        btnSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSairActionPerformed(evt);
             }
         });
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Seja Bem Vindo!");
+
+        lblReceberNome.setForeground(new java.awt.Color(255, 255, 255));
+        lblReceberNome.setText("usuario");
+
+        jdpPainel.setLayer(btnCalc, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdpPainel.setLayer(btnReajuste, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdpPainel.setLayer(btnBoletim, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdpPainel.setLayer(btnSair, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdpPainel.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jdpPainel.setLayer(lblReceberNome, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jdpPainelLayout = new javax.swing.GroupLayout(jdpPainel);
         jdpPainel.setLayout(jdpPainelLayout);
@@ -76,32 +101,36 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(btnCalc)
                     .addComponent(btnBoletim))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
-                .addGroup(jdpPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnReajuste)
-                    .addComponent(jButton1))
+                .addComponent(btnReajuste)
                 .addGap(85, 85, 85))
+            .addGroup(jdpPainelLayout.createSequentialGroup()
+                .addGap(151, 151, 151)
+                .addComponent(jLabel1)
+                .addGap(28, 28, 28)
+                .addComponent(lblReceberNome)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdpPainelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSair)
+                .addGap(20, 20, 20))
         );
         jdpPainelLayout.setVerticalGroup(
             jdpPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdpPainelLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
+                .addContainerGap()
+                .addGroup(jdpPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(lblReceberNome))
+                .addGap(25, 25, 25)
                 .addGroup(jdpPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCalc)
                     .addComponent(btnReajuste))
-                .addGroup(jdpPainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jdpPainelLayout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(btnBoletim)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdpPainelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(90, 90, 90))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addComponent(btnBoletim)
+                .addGap(56, 56, 56)
+                .addComponent(btnSair)
+                .addContainerGap())
         );
-        jdpPainel.setLayer(btnCalc, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdpPainel.setLayer(btnReajuste, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdpPainel.setLayer(btnBoletim, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jdpPainel.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -163,20 +192,33 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jmSairActionPerformed
 
+    private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
+        // TODO add your handling code here:
+     JFLogin abrir = new JFLogin();
+        abrir.setVisible(true); 
+        
+        
+    }//GEN-LAST:event_btnSairActionPerformed
+
     private void btnBoletimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBoletimActionPerformed
         // TODO add your handling code here:
+        JFBoletim abrir = new JFBoletim();
+        abrir.setVisible(true);
     }//GEN-LAST:event_btnBoletimActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnCalcActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcActionPerformed
         // TODO add your handling code here:
         JFCalcSoma abrir = new JFCalcSoma();
-        btnCalc.add(abrir);
-        abrir.setVisible(true);    
+        abrir.setVisible(true);
+
     }//GEN-LAST:event_btnCalcActionPerformed
+
+    private void btnReajusteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReajusteActionPerformed
+        // TODO add your handling code here:
+        
+        JFReajuste abrir = new JFReajuste();
+        abrir.setVisible(true);
+    }//GEN-LAST:event_btnReajusteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,7 +259,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnBoletim;
     private javax.swing.JButton btnCalc;
     private javax.swing.JButton btnReajuste;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSair;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
@@ -225,5 +268,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jmLogin;
     private javax.swing.JMenu jmMenu1;
     private javax.swing.JMenuItem jmSair;
+    private javax.swing.JLabel lblReceberNome;
     // End of variables declaration//GEN-END:variables
 }
